@@ -1,0 +1,495 @@
+:root {
+  --main-red: rgb(197, 0, 0);
+  --main-red--darker: rgb(165, 0, 0);
+  --main-light: #fafafa;
+  --main-light--transparent: rgba(250, 250, 250, 0.2);
+  --main-dark: rgba(0, 0, 0, 0.7);
+  --gradient-one: rgba(49, 24, 131, 0.8);
+  --gradient-two: rgba(49, 24, 255, 0.8);
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Nunito", sans-serif;
+  font-size: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+body {
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.main-nav {
+  width: 100%;
+  height: 5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--main-light--transparent);
+}
+
+.navbar__logo {
+  width: 4rem;
+}
+
+.navbar__open,
+.navbar__close {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.navbar__close {
+  position: absolute;
+  left: 2rem;
+  top: 0;
+}
+
+.navbar__icon {
+  font-size: 4rem;
+  color: var(--main-light);
+}
+
+.navbar__icon--close {
+  color: var(--main-red);
+}
+
+.nav-list {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(
+    90deg,
+    rgba(29, 1, 121, 0.99) 0%,
+    rgba(21, 0, 214, 0.99) 100%
+  );
+  z-index: 5000;
+  transition: transform 0.5s ease-in-out;
+}
+
+.nav-list.active {
+  transform: translateY(0);
+  position: fixed;
+}
+
+.nav-list__item {
+  margin: 2rem 0;
+}
+
+.nav-list__link {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: var(--main-light);
+  transition: color 0.3s ease-in-out;
+}
+
+/* hero */
+.hero .container {
+  min-height: 85vh;
+  position: relative;
+}
+
+.hero {
+  width: 100%;
+  min-height: 90vh;
+  background: linear-gradient(
+      90deg,
+      var(--gradient-one) 0%,
+      var(--gradient-two) 100%
+    ),
+    url(img/header-bg-.jpg);
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  bottom: -0.2rem;
+  left: 0;
+  background-image: url(img/wave-small.png);
+  width: 100%;
+  height: 4.7rem;
+  background-size: cover;
+}
+
+.intro {
+  max-width: 47%;
+  color: var(--main-light);
+  position: absolute;
+  top: 9rem;
+  left: 2rem;
+  right: 2rem;
+  min-height: 85vh;
+}
+
+.intro__header {
+  font-size: 3rem;
+  font-family: "Aldrich", sans-serif;
+  text-transform: uppercase;
+}
+
+.intro__description {
+  text-transform: uppercase;
+  font-size: 1.4rem;
+}
+
+.intro__btn {
+  border-radius: 2rem;
+  color: var(--main-light);
+  display: inline-block;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  background-color: var(--main-red);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.intro__btn--cta {
+  margin: 2rem 0;
+}
+
+.intro__btn:hover {
+  background-color: var(--main-red--darker);
+}
+
+/* outdoors */
+/* begin adventure */
+
+.outdoors {
+  margin: 6rem 0;
+}
+
+.begin-adventure {
+  margin: 8rem 0;
+}
+
+.experience-intro,
+.adventure-intro {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 6rem;
+  color: var(--main-dark);
+}
+
+.experience-intro__sub-heading,
+.adventure-intro__sub-heading {
+  font-size: 1.4rem;
+}
+
+.experience-intro__heading,
+.adventure-intro__heading {
+  font-family: "Aldrich", sans-serif;
+  font-size: 3rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.experience-intro__summary,
+.adventure-intro__summary {
+  text-transform: initial;
+}
+
+.adventure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+  grid-gap: 1rem;
+}
+
+.adventure-item {
+  padding: 2rem;
+}
+
+.intro__btn--cta-two {
+  margin: 2rem;
+}
+
+.activities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 2rem;
+}
+
+.activity {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem;
+  color: var(--main-light);
+  z-index: 0;
+  position: relative;
+}
+
+.activity::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--main-light);
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--gradient-one) 0%,
+    var(--gradient-two) 100%
+  );
+  z-index: -1;
+}
+
+.activity--star {
+  background: url(img/stars-.jpg) center no-repeat;
+}
+.activity--compass {
+  background: url(img/hiking-.jpg) center no-repeat;
+}
+.activity--bonfire {
+  background: url(img/camping-.jpg) center no-repeat;
+}
+
+.activity__icon {
+  font-size: 4rem;
+  color: rgb(197, 0, 0);
+}
+
+.activity__title {
+  font-family: "Aldrich", sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin: 2rem 0;
+}
+
+/* testimonials */
+.testimonials {
+  width: 100%;
+  min-height: 50rem;
+  background: linear-gradient(
+      90deg,
+      var(--gradient-one) 0%,
+      var(--gradient-two) 100%
+    ),
+    url(img/testimonials-bg-.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin: 4rem 0;
+  color: var(--main-light);
+  text-align: center;
+}
+
+.testimonials::before {
+  content: "";
+  position: absolute;
+  top: -0.2rem;
+  left: 0;
+  height: 4.7rem;
+  width: 100%;
+  background: url(img/wave-small-reversed.png) center no-repeat;
+  background-size: cover;
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 7rem 0;
+  min-height: 50rem;
+}
+
+.testimonial__icon {
+  font-size: 6rem;
+  color: var(--main-red);
+  line-height: 1;
+}
+
+.testimonial__description,
+.testimonial__user {
+  font-size: 2rem;
+}
+
+.testimonial__face {
+  width: 10rem;
+  border-radius: 50%;
+  border: 0.3rem solid var(--main-red);
+  margin: 2rem 0;
+}
+
+/* footer */
+.main-footer {
+  padding: 3rem;
+  background: linear-gradient( 90deg, rgba(29, 1, 121, 0.99) 0%, rgba(21, 0, 214, 0.99) 100% );
+  color: var(--main-light);
+  text-align: center;
+}
+
+/* media queries */
+@media (min-width: 470px) {
+  .hero::before {
+    height: 9.4rem;
+    background: url(img/wave-medium.png);
+    bottom: -0.3rem;
+    background-size: cover;
+  }
+  .testimonials::before {
+    height: 10rem;
+    background: url(img/wave-medium-reversed.png);
+    top: -0.3rem;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 700px) {
+  .navbar {
+    padding: 1rem 0;
+  }
+
+  .navbar__logo {
+    width: 5rem;
+  }
+
+  .nav-list {
+    width: initial;
+    height: initial;
+    background: transparent;
+    position: initial;
+    flex-direction: row;
+    transform: translateY(0);
+    /* transition: initial; */
+  }
+
+  .navbar__open,
+  .navbar__close {
+    display: none;
+  }
+
+  .nav-list__item {
+    margin: 0 1rem;
+  }
+
+  .nav-list__link,
+  .nav-list__link--current {
+    position: relative;
+    font-size: 1.8rem;
+  }
+
+  .nav-list__link::before,
+  .nav-list__link--current::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    background-color: var(--main-red);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .nav-list__link--current::before {
+    transform: scaleX(1);
+  }
+
+  .nav-list__link:hover {
+    color: var(--main-red);
+  }
+
+  /* .nav-list__link:hover::before {
+        transform: scaleX(1);
+
+    } */
+
+  .intro {
+    top: 20rem;
+  }
+}
+
+@media (min-width: 950px) {
+  .testimonials {
+    min-height: 70rem;
+  }
+
+  .testimonial {
+    justify-content: flex-end;
+    min-height: 70rem;
+  }
+
+  .hero::before {
+    height: 22.7rem;
+    background: url(img/wave-large.png);
+    bottom: -0.3rem;
+    background-size: cover;
+  }
+  .testimonials::before {
+    height: 22.7rem;
+    background: url(img/wave-large-reversed.png);
+    top: -0.3rem;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 950px) {
+  .intro {
+    top: 15rem;
+  }
+
+  .intro__header {
+    font-size: 4rem;
+  }
+
+  .intro__description {
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .testimonial {
+    min-height: 70rem;
+  }
+}
